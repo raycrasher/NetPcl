@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { PclItemComponent } from './pcl-item/pcl-item.component';
 import { PclSheetComponent } from './pcl-sheet/pcl-sheet.component';
+import { CreateTestSuiteComponent } from './create-test-suite/create-test-suite.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PclSheetComponent } from './pcl-sheet/pcl-sheet.component';
     CounterComponent,
     FetchDataComponent,
     PclItemComponent,
-    PclSheetComponent
+    PclSheetComponent,
+    CreateTestSuiteComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

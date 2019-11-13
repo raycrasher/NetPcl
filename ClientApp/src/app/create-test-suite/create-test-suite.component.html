@@ -1,0 +1,18 @@
+<div>
+    <h1>Create new PCL suite</h1>
+    <label>
+        Name:
+        <input type="text" [formControl]="name" />
+    </label>
+    <label>
+        Name:
+        <textarea [formControl]="description" ></textarea>
+    </label>
+    <button (click)="addSheet()">Add new sheet</button>
+    <ul *ngFor="let sheet of sheets">
+        <li>
+            <span>{{sheet.name}}</span>
+            <button (click)="removeSheet(sheet)">Remove</button>
+        </li>
+    </ul>
+</div>
