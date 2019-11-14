@@ -9,4 +9,5 @@ namespace NetPcl.Models
         void SaveFactor(Factor factor);
 
     }
+
 }

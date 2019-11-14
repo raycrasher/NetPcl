@@ -1,0 +1,11 @@
+<div *ngIf="this.suite!=null">
+  <h3>Modifying <strong>{{suite.name}}</strong></h3>
+  <p>{{suite.description}}</p>
+
+  <h2>Sheets</h2>
+  <p> <button (click)="addSheet()">Add Sheet</button></p>
+  <ul *ngFor="let sheet of this.suite.sheets">
+    <li>{{sheet.name}} <button (click)="removeSheet(sheet)">X</button></li>
+  </ul>
+
+</div>

@@ -1,3 +1,9 @@
+export class Result<T> {
+    ok:boolean;
+    message:string;
+    data:T;
+}
+
 export class Level {
     id: number;
     name: string;
@@ -19,5 +25,6 @@ export class TestSuite {
     id: number;
     name: string;
     description: string;
-    sheets: TestSheet[];
+    sheets: TestSheet[] = [];
+
 }

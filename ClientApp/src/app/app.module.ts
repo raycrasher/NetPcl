@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { PclItemComponent } from './pcl-item/pcl-item.component';
 import { PclSheetComponent } from './pcl-sheet/pcl-sheet.component';
 import { CreateTestSuiteComponent } from './create-test-suite/create-test-suite.component';
+import { EditTestSuiteComponent } from './edit-test-suite/edit-test-suite.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CreateTestSuiteComponent } from './create-test-suite/create-test-suite.
     FetchDataComponent,
     PclItemComponent,
     PclSheetComponent,
-    CreateTestSuiteComponent
+    CreateTestSuiteComponent,
+    EditTestSuiteComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,7 +33,8 @@ import { CreateTestSuiteComponent } from './create-test-suite/create-test-suite.
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'newpcl', component: CreateTestSuiteComponent },
+      { path: 'editpcl/:id', component: EditTestSuiteComponent },
     ])
   ],
   providers: [],

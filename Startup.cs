@@ -34,6 +34,7 @@ namespace NetPCL
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod());
             }
             else
             {
@@ -67,7 +68,8 @@ namespace NetPCL
 
                 if (env.IsDevelopment())
                 {
-                    spa.UseAngularCliServer(npmScript: "start");
+                    //spa.UseAngularCliServer(npmScript: "start");
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
                 }
             });
         }
