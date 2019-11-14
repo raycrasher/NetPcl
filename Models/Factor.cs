@@ -15,8 +15,7 @@ namespace NetPcl.Models
         VeryHard=4
     }
 
-    public class Factor {
-        public string Id { get; set; }
+    public class Factor: DbObject {
         public string Name {get; set; }
         public string Tags { get; set; }
         public List<Level> Levels { get; set; } = new List<Level>();

@@ -1,11 +1,17 @@
 <div *ngIf="this.suite!=null">
-  <h3>Modifying <strong>{{suite.name}}</strong></h3>
-  <p>{{suite.description}}</p>
+  <div class="row">
+    <div class="col-sm-3">
+      <h3>Modifying <strong>{{suite.name}}</strong></h3>
+      <p>{{suite.description}}</p>
 
-  <h2>Sheets</h2>
-  <p> <button (click)="addSheet()">Add Sheet</button></p>
-  <ul *ngFor="let sheet of this.suite.sheets">
-    <li>{{sheet.name}} <button (click)="removeSheet(sheet)">X</button></li>
-  </ul>
-
+      <h2>Sheets</h2>
+      <p> <button (click)="addSheet()">Add Sheet</button></p>
+      <ul *ngFor="let sheet of this.suite.sheets">
+        <li><a (click)="selectedSheet=sheet">{{sheet.name}}</a> <button (click)="removeSheet(sheet)" >X</button></li>
+      </ul>
+    </div>
+    <div class="col-sm-9">
+      <app-edit-sheet [sheet]="this.selectedSheet"></app-edit-sheet>
+    </div>
+  </div>
 </div>

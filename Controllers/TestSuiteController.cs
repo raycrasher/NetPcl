@@ -12,40 +12,51 @@ namespace NetPcl.Controllers
     public class TestSuiteController : ControllerBase
     {
         //Todo: database
-        static Dictionary<int, Models.TestSuite> suitesTemp = new Dictionary<int, Models.TestSuite>();
-        static int nextId = 1;
 
         private readonly ILogger<TestSuiteController> _logger;
+        private readonly IRepository _repo;
 
-        public TestSuiteController(ILogger<TestSuiteController> logger)
+        public TestSuiteController(ILogger<TestSuiteController> logger, IRepository repo)
         {
             _logger = logger;
-        }
-
-        public class CreatePclPostData
-        {
-            public string Name { get; set; }
-            public string Description { get; set; }
+            _repo=repo;
         }
 
         [Route("/api/pcl")]
         [HttpPost]
-        public Result<int> Post(CreatePclPostData data)
+        public Result<int> SavePcl(TestSuite data)
         {
-            suitesTemp[nextId] = new Models.TestSuite { Id = nextId, Name = data.Name, Author = "", Sheets = new List<Models.TestSheet>() };
-            //Todo
-            var id=nextId;
-            nextId++;
-            return new Result<int>(id);
+            _repo.SaveSuite(data);
+            return new Result<int>(data.Id);
         }
 
         [Route("/api/pcl/{id}")]
         [HttpGet]
         public Result<TestSuite> GetPcl(int id)
         {
-            if (suitesTemp.TryGetValue(id, out var suite))
-                return new Result<TestSuite>(suite);
-            else return new Result<TestSuite>(false, "Cannot find test suite", null);
+            var data=_repo.GetSuite(id);
+            if(data==null)
+                return new Result<TestSuite>(false, "Cannot find test suite", null);
+            else
+                return new Result<TestSuite>(data);
+        }
+
+        [Route("/api/sheet")]
+        [HttpPost]
+        public Result<int> SaveSheet(TestSheet sheet){
+            _repo.SaveSheet(sheet);
+            return new Result<int>(sheet.Id);
+        }
+
+        [Route("/api/sheet/{id}")]
+        [HttpGet]
+        public Result<TestSheet> GetSheet(int id)
+        {
+            var data=_repo.GetSheet(id);
+            if(data==null)
+                return new Result<TestSheet>(false, "Cannot find test suite", null);
+            else
+                return new Result<TestSheet>(data);
         }
     }
 }

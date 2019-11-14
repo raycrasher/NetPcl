@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace NetPCL
+namespace NetPcl
 {
     public class Startup
     {
@@ -26,6 +26,7 @@ namespace NetPCL
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+            services.AddSingleton(typeof(Models.IRepository), typeof(Models.TestRepository));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

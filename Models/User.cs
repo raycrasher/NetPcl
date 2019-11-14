@@ -7,8 +7,7 @@ namespace NetPcl.Models
         Guest = 0, TestCreator = 1, Tester = 2, Admin = 7
     }
 
-    public class User {
-        public int Id { get; set; }
+    public class User : DbObject {
         public string Name { get; set; }
         public string Email { get; set; }
         public UserPermissions Permissions {get;set;} = UserPermissions.Guest;

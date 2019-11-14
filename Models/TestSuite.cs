@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 namespace NetPcl.Models
 {
-    public class TestSuite {
-        public int Id { get; set; }
+    public class TestSuite : DbObject{
         public string Name { get; set; }
         public string Author { get; set; }
 

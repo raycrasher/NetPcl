@@ -13,6 +13,8 @@ import { PclItemComponent } from './pcl-item/pcl-item.component';
 import { PclSheetComponent } from './pcl-sheet/pcl-sheet.component';
 import { CreateTestSuiteComponent } from './create-test-suite/create-test-suite.component';
 import { EditTestSuiteComponent } from './edit-test-suite/edit-test-suite.component';
+import { EditSheetComponent } from './edit-sheet/edit-sheet.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { EditTestSuiteComponent } from './edit-test-suite/edit-test-suite.compon
     PclItemComponent,
     PclSheetComponent,
     CreateTestSuiteComponent,
-    EditTestSuiteComponent
+    EditTestSuiteComponent,
+    EditSheetComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -35,7 +38,8 @@ import { EditTestSuiteComponent } from './edit-test-suite/edit-test-suite.compon
       { path: 'counter', component: CounterComponent },
       { path: 'newpcl', component: CreateTestSuiteComponent },
       { path: 'editpcl/:id', component: EditTestSuiteComponent },
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

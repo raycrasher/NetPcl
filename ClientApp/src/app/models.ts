@@ -4,25 +4,31 @@ export class Result<T> {
     data:T;
 }
 
-export class Level {
-    id: number;
+export class Model {
+    id: number = 0;
+    needsSaving:boolean = false;
+    needsLoading:boolean = false;
+}
+
+export class Level extends Model {
+    
     name: string;
 }
 
-export class Factor {
-    id: number;
+export class Factor  extends Model {
+    
     name: string;
     levels: Level[];
 }
 
-export class TestSheet {
-    id: number;
+export class TestSheet  extends Model {
+    
     name: string;
     factors: Factor[];
 }
 
-export class TestSuite {
-    id: number;
+export class TestSuite  extends Model {
+    
     name: string;
     description: string;
     sheets: TestSheet[] = [];

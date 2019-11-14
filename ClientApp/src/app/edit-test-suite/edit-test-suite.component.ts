@@ -14,6 +14,7 @@ export class EditTestSuiteComponent implements OnInit {
 
     suite: TestSuite;
     newSheetNum:number=1;
+    selectedSheet:TestSheet;
 
     constructor(private route: ActivatedRoute,
         private router: Router,
@@ -26,7 +27,7 @@ export class EditTestSuiteComponent implements OnInit {
         ).subscribe(o => {
 
             this.suite = o;
-            console.log(o);
+            
         });
     }
 

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 namespace NetPcl.Models
 {
-    public class TestSheet {
-        public int Id { get; set; }
+    public class TestSheet : DbObject{
         public string Name { get; set; }
 
         public List<Factor> Factors {get;set;} = new List<Factor>();
